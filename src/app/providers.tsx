@@ -1,5 +1,6 @@
 'use client'
 
+import { NavBar } from '@/components'
 import { AuthProvider, useAuth } from '@/hooks'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
@@ -23,7 +24,10 @@ export default function Providers({ children }: PropsWithChildren) {
     <>
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
-        <AuthProvider value={authState}>{children}</AuthProvider>
+        <AuthProvider value={authState}>
+          <NavBar />
+          {children}
+        </AuthProvider>
       </QueryClientProvider>
     </>
   )
