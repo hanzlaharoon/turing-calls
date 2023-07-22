@@ -1,3 +1,4 @@
+import { LoginResponse } from '@/queries'
 import { User } from '@/types'
 import { createContext, useContext, useEffect, useReducer } from 'react'
 
@@ -20,7 +21,7 @@ const initialAuthState: AuthState = {
 
 interface LoginAction {
   type: 'Login'
-  payload: Omit<AuthState, 'status'>
+  payload: LoginResponse
 }
 
 interface LogoutAction {
@@ -29,7 +30,7 @@ interface LogoutAction {
 
 interface RefreshTokenAction {
   type: 'RefreshToken'
-  payload: Omit<AuthState, 'status' | 'refreshToken'>
+  payload: Omit<LoginResponse, 'refreshToken'>
 }
 
 type AuthActions = LoginAction | LogoutAction | RefreshTokenAction
