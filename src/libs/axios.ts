@@ -1,4 +1,4 @@
-import { LoginResponse } from '@/queries'
+import { LoginResponse, RawLoginResponse } from '@/queries'
 import axios from 'axios'
 import dayjs from 'dayjs'
 
@@ -24,8 +24,14 @@ async function refreshAuthToken(): Promise<
         },
       }
     )
-    .then((res) => res?.data)
+    .then((res) => res?.data as Omit<RawLoginResponse, 'refresh_token'>)
+    .then((data) => ({
+      user: data?.user,
+      accessToken: data?.access_token,
+    }))
 
+  localStorage.setItem('accessToken', result?.accessToken)
+  localStorage.setItem('tokenCreatedAt', Date.now().toString())
   return result
 }
 

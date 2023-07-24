@@ -6,7 +6,7 @@ export interface LoginPayload extends Pick<User, 'username'> {
   password: string
 }
 
-interface RawLoginResponse {
+export interface RawLoginResponse {
   user: User
   access_token: string
   refresh_token: string
