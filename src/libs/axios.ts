@@ -73,3 +73,22 @@ axiosClient.interceptors.request.use(async (req) => {
 
   return req
 })
+
+axiosClient.interceptors.response.use(
+  (req) => req,
+  (error) => {
+    const originalConfig = error.config
+    if (originalConfig?.url !== '/auth/login' && error?.response) {
+      if (error?.response?.status === 401) {
+        localStorage.removeItem('user')
+        localStorage.removeItem('accessToken')
+        localStorage.removeItem('refreshToken')
+        localStorage.removeItem('tokenCreatedAt')
+        window.location.href = '/'
+      }
+      return originalConfig
+    }
+
+    return Promise.reject(error)
+  }
+)
