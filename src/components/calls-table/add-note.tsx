@@ -1,10 +1,10 @@
-import { Call } from '@/types'
-import { CallType } from '.'
-import { formatSeconds } from '@/utils'
-import * as yup from 'yup'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
 import { useAddNoteMutation } from '@/queries'
+import { Call } from '@/types'
+import { formatSeconds } from '@/utils'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import { CallType } from '.'
 
 const schema = yup
   .object({

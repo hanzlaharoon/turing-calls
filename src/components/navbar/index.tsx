@@ -1,8 +1,8 @@
 'use client'
 
 import { useAuthContext } from '@/hooks'
-import ttLogo from '../../app/tt-logo.png'
 import Image from 'next/image'
+import ttLogo from '../../app/tt-logo.png'
 
 export function NavBar() {
   const authState = useAuthContext()

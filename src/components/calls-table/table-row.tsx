@@ -1,8 +1,8 @@
-import { CallStatus } from './call-status'
-import { formatDate, formatSeconds } from '@/utils'
-import { Call } from '@/types'
 import { useArchiveCallMutation } from '@/queries'
+import { Call } from '@/types'
+import { formatDate, formatSeconds } from '@/utils'
 import { AddNoteModal } from '.'
+import { CallStatus } from './call-status'
 
 export function CallType({ text }: { text: Call['call_type'] }) {
   function getClassnames() {
