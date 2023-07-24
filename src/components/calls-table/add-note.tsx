@@ -45,6 +45,7 @@ export function AddNoteModal({
           reset()
           notes.push(data?.notes[data.notes.length - 1])
           const modalId = 'notes_modal_' + id
+          // @ts-ignore
           window[modalId].close()
         },
       }

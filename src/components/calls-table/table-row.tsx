@@ -71,6 +71,7 @@ export function CallRecordRow({ call }: props) {
 
   function handleAddNote() {
     const noteId = 'notes_modal_' + id
+    //@ts-ignore
     window[noteId]?.showModal()
   }
 
