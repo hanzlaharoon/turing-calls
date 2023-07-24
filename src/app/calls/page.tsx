@@ -39,8 +39,9 @@ export default function CallRecords() {
             id="by-status"
             name="by-status"
             disabled={isLoading}
+            defaultValue=""
           >
-            <option selected disabled>
+            <option value="" disabled>
               Status
             </option>
             <option value="all">All</option>
