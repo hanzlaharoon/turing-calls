@@ -4,7 +4,7 @@ import { formatSeconds } from '@/utils'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
-import { CallType } from '.'
+import { CallType } from './elements'
 
 const schema = yup
   .object({

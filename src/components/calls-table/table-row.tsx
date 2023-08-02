@@ -1,49 +1,8 @@
 import { useArchiveCallMutation } from '@/queries'
 import { Call } from '@/types'
-import { formatDate, formatSeconds } from '@/utils'
+import { formatDate } from '@/utils'
 import { AddNoteModal } from '.'
-import { CallStatus } from './call-status'
-
-export function CallType({ text }: { text: Call['call_type'] }) {
-  function getClassnames() {
-    if (text === 'missed') return 'text-error'
-    else if (text === 'answered') return 'text-success'
-    else return 'text-primary'
-  }
-
-  return <td className={`capitalize ${getClassnames()}`}>{text}</td>
-}
-
-export function CallDuration({ duration }: { duration: number }) {
-  return (
-    <td>
-      <p>{formatSeconds(duration)}</p>
-      <p className="text-primary">({duration} seconds)</p>
-    </td>
-  )
-}
-
-interface CallActionProps {
-  onAddNote: () => void
-}
-
-export function CallActions({ onAddNote }: CallActionProps) {
-  function handleAddNote() {
-    onAddNote()
-  }
-
-  return (
-    <td>
-      <button
-        className={`btn btn-xs rounded-sm capitalize btn-primary`}
-        onClick={handleAddNote}
-      >
-        {' '}
-        Add note
-      </button>
-    </td>
-  )
-}
+import { CallActions, CallDuration, CallStatus, CallType } from './elements'
 
 interface props {
   call: Call
